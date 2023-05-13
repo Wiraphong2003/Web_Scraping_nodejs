@@ -4,12 +4,16 @@ console.log(puppeteer);
 async function scrape() {
    const browser = await puppeteer.launch();
    const page = await browser.newPage();
-   await page.goto("http://reg.msu.ac.th/registrar/class_info_1.asp?avs1006135491=4&backto=enroll");
+   await page.goto("https://www.oxfordlearnersdictionaries.com/wordlists/oxford3000-5000");
+   for (let index = 1; index < 1000; index++) {
+      let element = await page.waitForSelector(`#wordlistsContentPanel > ul > li:nth-child(${index})> a`)
+      let text = await page.evaluate(element => element.textContent, element)
 
-   let element = await page.waitForSelector("body > div.contenttive > div:nth-child(1) > div.main > div > table:nth-child(6) > tbody > tr:nth-child(4) > td:nth-child(2) > a")
+      let element1 = await page.waitForSelector(`#wordlistsContentPanel > ul > li:nth-child(${index}) > span`)
+      let text1 = await page.evaluate(element1 => element1.textContent, element1)
 
-   let text = await page.evaluate(element => element.textContent, element)
-   console.log(text);
+      console.log(text + "\t" + text1);
+   }
    await browser.close();
 }
 scrape()
