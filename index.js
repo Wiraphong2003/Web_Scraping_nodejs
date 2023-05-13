@@ -7,10 +7,27 @@ console.log(puppeteer);
    await page.waitForSelector("#menutive > a:nth-child(3)")
    await page.click("#menutive > a:nth-child(3)")
    await page.waitForSelector("#ASPxRoundPanel1_RPC > table > tbody > tr:nth-child(1) > td:nth-child(5) > input[type=TEXT]")
-   await page.type("#ASPxRoundPanel1_RPC > table > tbody > tr:nth-child(1) > td:nth-child(5) > input[type=TEXT]", "64011212049", { delay: 100 })
-   await page.type("#ASPxRoundPanel1_RPC > table > tbody > tr:nth-child(2) > td:nth-child(2) > input[type=PASSWORD]:nth-child(1)", "0", { delay: 100 })
-   await page.click("#ASPxRoundPanel1_RPC > table > tbody > tr:nth-child(3) > td:nth-child(2) > font > input[type=SUBMIT]")
-   await page.click("#fancybox-close")
+   await page.type("#ASPxRoundPanel1_RPC > table > tbody > tr:nth-child(1) > td:nth-child(5) > input[type=TEXT]", "64011212049", { delay: 50 })
+
+   await page.type("#ASPxRoundPanel1_RPC > table > tbody > tr:nth-child(2) > td:nth-child(2) > input[type=PASSWORD]:nth-child(1)", "0", { delay: 50 })
+
+   await page.click("#ASPxRoundPanel1_RPC > table > tbody > tr:nth-child(3) > td:nth-child(2) > font > input[type=SUBMIT]") // login
+
+   await page.click("#fancybox-close") // close windows
+
+
+   await page.click("#menutive > a:nth-child(8)") // ค้นหารายวิชา
+   await page.click("body > div.contenttive > div:nth-child(1) > div.main > div > table:nth-child(2) > tbody > tr:nth-child(5) > td:nth-child(2) > select") // จำนวนรายการที่ได้จากการค้นหาไม่เกิน 
+
+   await page.click("body > div.contenttive > div:nth-child(1) > div.main > div > table:nth-child(2) > tbody > tr:nth-child(5) > td:nth-child(2) > select > option:nth-child(4)") //250
+
+   await page.waitForSelector("body > div.contenttive > div:nth-child(1) > div.main > div > table:nth-child(2) > tbody > tr:nth-child(7) > td:nth-child(2) > table > tbody > tr > td:nth-child(4) > input[type=TEXT]:nth-child(2)") // ช่องค้นหา
+
+
+   await page.type("body > div.contenttive > div:nth-child(1) > div.main > div > table:nth-child(2) > tbody > tr:nth-child(7) > td:nth-child(2) > table > tbody > tr > td:nth-child(4) > input[type=TEXT]:nth-child(2)", "1204**", { delay: 100 })//หรอกรหัสวิชา
+
+
+   await page.click("body > div.contenttive > div:nth-child(1) > div.main > div > table:nth-child(2) > tbody > tr:nth-child(7) > td:nth-child(2) > table > tbody > tr > td:nth-child(4) > input[type=submit]:nth-child(4)") //ค้นหา
 
 })();
 
