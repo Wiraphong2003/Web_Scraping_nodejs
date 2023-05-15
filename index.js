@@ -9,11 +9,9 @@ console.log(puppeteer);
    });
 
    const page = await browser.newPage();
-   // await page.goto("https://reg.msu.ac.th/registrar/home.asp");
+
    await page.goto("https://reg.msu.ac.th/registrar/login.asp");
 
-   // await page.waitForSelector("#menutive > a:nth-child(3)")
-   // await page.click("#menutive > a:nth-child(3)")
    await page.waitForSelector("#ASPxRoundPanel1_RPC > table > tbody > tr:nth-child(1) > td:nth-child(5) > input[type=TEXT]")
 
    await page.type("#ASPxRoundPanel1_RPC > table > tbody > tr:nth-child(1) > td:nth-child(5) > input[type=TEXT]", "64011212049", { delay: 50 })
@@ -23,15 +21,16 @@ console.log(puppeteer);
    await page.click("#ASPxRoundPanel1_RPC > table > tbody > tr:nth-child(3) > td:nth-child(2) > font > input[type=SUBMIT]", { delay: 100 }) // login
 
    await page.waitForNavigation();
+   // await page.screenshot({ path: 'example.png' });
+   await page.click("#fancybox - close")
+   // #fancybox - overlay
    
-
-   await page.click("#fancybox-close")
 
    // const pagemain = await browser.newPage();
    // await pagemain.goto(newUrl);
    // await pagemain.click("#fancybox-close") // close windows
 
-   await pagemain.click("#menutive > a:nth-child(7)") // ค้นหารายวิชา
+   // await pagemain.click("#menutive > a:nth-child(7)") // ค้นหารายวิชา
 
    // await page.click("body > div.contenttive > div:nth-child(1) > div.main > div > table:nth-child(2) > tbody > tr:nth-child(5) > td:nth-child(2) > select") // จำนวนรายการที่ได้จากการค้นหาไม่เกิน
 
