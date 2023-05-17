@@ -22,7 +22,7 @@ console.log(puppeteer);
 
    await page.waitForNavigation();
    // await page.screenshot({ path: 'example.png' });
-   await page.click("#fancybox - close")
+   await page.click("#fancybox-close")
    // #fancybox - overlay
    
 
